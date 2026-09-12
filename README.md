@@ -1,16 +1,47 @@
-# React + Vite
+# LinkedIn-CRM
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A lightweight LinkedIn relationship/outreach CRM in the browser: track leads and
+creators across a board, schedule follow-ups on a calendar, and stay within your
+weekly connection limits.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **Board view** — manage leads as cards, add and edit them, and schedule actions.
+- **Creators view** — keep a list of creators/profiles you follow and engage with.
+- **Calendar view** — see and manage scheduled outreach and follow-ups.
+- **Weekly limit tracker** — visualize how close you are to a weekly connection cap.
+- **FOMO strength meter** — a per-lead scoring indicator derived from leads and creators.
+- **Local, client-side state** — data is held in the app via React hooks/store.
+- **Optional LinkedIn scraper** — a Playwright boilerplate (`scraper/linkedin-scraper.js`)
+  that extracts a profile into structured data you can import. Use responsibly and
+  in line with LinkedIn's Terms of Service.
 
-## React Compiler
+## Tech
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React 19 + Vite
+- Tailwind CSS
+- lucide-react icons
+- Playwright (for the optional scraper)
 
-## Expanding the ESLint configuration
+## Run
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```bash
+npm install
+npm run dev
+```
+
+Then open the URL Vite prints (default http://localhost:5173).
+
+Build for production:
+
+```bash
+npm run build
+npm run preview
+```
+
+### Optional scraper
+
+```bash
+npm install playwright
+node scraper/linkedin-scraper.js "https://linkedin.com/in/<profile>"
+```
